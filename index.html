@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fuel Counter </title>
+    <script language = "JavaScript">
+        var  distance = [], // відстань, уведена користувачем
+        volume = []; // об'єм, уведений користувачем
+
+        // додавання запису введеного користувачем
+        function addNote() { 
+            distance.push(parseInt(window.prompt("Уведіть км ", "0")));
+            volume.push(parseInt(window.prompt("Уведіть л ", "0")));
+        }
+
+        // виведення всіх даних
+        function outputInfo() { 
+            var numOfKmOnLiter = [];
+            // додання до масиву км на 1л всіх записів
+            for (let i = 0; i < distance.length; i++) {
+                numOfKmOnLiter.push(distance[i]/volume[i]); 
+            }
+
+            var sum = 0;
+            // підрахунок суми км на 1л всіх записів
+            numOfKmOnLiter.forEach(function(value) { 
+                sum += value;
+            });
+
+            var average = sum / numOfKmOnLiter.length; // підрахунок середнього значення км на 1л всіх записів
+            // вивід даних
+            alert(" Записи кілометрів - " + distance + "\n Записи литрі - " + volume 
+            + "\n Кількість км на 1л всіх записів - " + numOfKmOnLiter 
+            + "\n Середнє значення км на 1л - " + average);
+        }
+    </script>
+    <input type="button" onclick="addNote()" value="Додати запис"> <!--кнопка для додання запису-->
+    <input type="button" onclick="outputInfo()" value="Вивести результат"> <!--кнопка для виводу даних--> 
+</head>
+<body>
+</body>
+</html>
